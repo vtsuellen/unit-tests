@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 
 /*
-  Use template literals para escrever uma função que,
+  Use template literals ` ` para escrever uma função que,
   recebe seu nome e sua idade e retorna o parágrafo descrito abaixo:
 
   Parâmetros:
@@ -18,6 +18,13 @@
   Caso a função seja chamada sem nenhum parâmetro, o valor undefined deve ser retornado.
 */
 
-const vqv = () => {};
+const vqv = (string, number) => {
+  if (!string || !number) {
+    return undefined;
+  } return `Oi, meu nome é ${string}!
+Tenho ${number} anos,
+trabalho na Trybe e mando muito em programação!
+#VQV!`;
+};
 
 module.exports = vqv;
