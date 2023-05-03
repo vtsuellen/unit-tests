@@ -11,8 +11,21 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-  // adicione seu código aqui
+const average = (array) => {
+  let sum = 0;
+  if (array.length === 0) {
+    return undefined;
+  }
+  for (let i = 0; i < array.length; i += 1) {
+    // isNan é usado para verificar se cada elemento não é um número
+    if (typeof array[i] !== 'number') {
+      return undefined;
+    }
+    // calcula os numeros
+    sum += array[i];
+  }
+  // retorna a media
+  return Math.round(sum / array.length);
 };
-
+console.log(average([1, 2, 3, 4]));
 module.exports = average;
