@@ -18,7 +18,7 @@
 const createStudent = (name) => {
    const feedback = () => 'Eita pessoa boa!';
 
-   return {
+   return { // Objeto que contem duas chaves
     name,
     feedback,
    };
