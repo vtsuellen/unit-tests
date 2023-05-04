@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 
-const getCharacter = require('../src/getCharacter');
+const getCharacter = require("../src/getCharacter");
 
 /*
 A função getCharacter recebe uma string que representa o nome de um personagem e retorna um objeto contendo seu nome, sua classe e suas frases.
@@ -42,15 +42,65 @@ Retorno:
 }
 */
 
-describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
-  it('Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.', () => {
-    fail('Teste vazio!');
-    // ESCREVA SEUS TESTES ABAIXO:
-    // 1. Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
-    // 2. Teste se a função retorna o objeto correto para o parâmetro 'Arya',
-    // 3. Teste se a função retorna o objeto correto para o parâmetro 'Brienne',
-    // 4. Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
-    // 5. Teste se o parâmetro não é Case Sensitive, ou seja, independente de conter letras maiúsculas ou minúsculas retorna o mesmo objeto relativo a ele.
-    // 6. Teste se ao passar um nome que não está na tabela, a função retorna undefined.
+describe("9 - Implemente os casos de teste da função `getCharacter`", () => {
+  it("Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.", () => {});
+  // 1. Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+  it("Verifica se ao não receber nenhum parametro a função retorna undefined", () => {
+    expect(getCharacter()).toBeUndefined;
   });
+  // 2. Teste se a função retorna o objeto correto para o parâmetro 'Arya',
+  it("Verifica se ao receber o parametro 'Arya' a função retorna o objeto correto", () => {
+    expect(getCharacter("Arya")).toEqual({
+      name: "Arya Stark",
+      class: "Rogue",
+      phrases: ["Not today", "A girl has no name.",
+      ],
+    });
+  });
+  // 3. Teste se a função retorna o objeto correto para o parâmetro 'Brienne',
+  it("Verifica se ao receber o parametro 'Brienne' a função retorna o objeto correto", () => {
+    expect(getCharacter("Brienne")).toEqual({
+      name: "Brienne Tarth",
+      class: "Knight",
+      phrases: [
+        "Im No Lady, Your Grace.",
+        "I, Brienne Of Tarth, Sentence You To Die.",
+      ],
+    });
+  });
+  // 4. Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
+  it("Verifica se ao receber o parametro 'Melissandre' a função retorna o objeto correto", () => {
+    expect(getCharacter("Melissandre")).toEqual({
+      name: "Melissandre",
+      class: "Necromancer",
+      phrases: [
+        "Death By Fire Is The Purest Death.",
+        "For The Night Is Dark And Full Of Terrors.",
+      ],
+    });
+  });
+  // 5. Teste se o parâmetro não é Case Sensitive, ou seja, independente de conter letras maiúsculas ou minúsculas retorna o mesmo objeto relativo a ele.
+  it("Verifica se independete de conter letras maiusculas ou minusculas retorna o mesmo objeto", () => {
+    expect(getCharacter('ARYA')).toEqual({
+      name: "Arya Stark",
+      class: "Rogue",
+      phrases: ["Not today", "A girl has no name."],
+    });
+    expect(getCharacter('arya')).toEqual({
+      name: "Arya Stark",
+      class: "Rogue",
+      phrases: ["Not today", "A girl has no name."],
+    });
+    expect(getCharacter('ArYa')).toEqual({
+      name: "Arya Stark",
+      class: "Rogue",
+      phrases: ["Not today", "A girl has no name."],
+    });
+  })
+  // 6. Teste se ao passar um nome que não está na tabela, a função retorna undefined.
+  it("verifica a função retorna undefined ao receber um nome que não está na tabela", () => {
+    expect(getCharacter('suellen')).toBeUndefined;
+    expect(getCharacter('caio')).toBeUndefined;
+    expect(getCharacter('Alguem')).toBeUndefined;
+  })
 });
