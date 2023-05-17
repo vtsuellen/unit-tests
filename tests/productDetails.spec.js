@@ -36,7 +36,7 @@ describe("6 - Implemente os casos de teste para a função `productDetails`", ()
   });
   // Teste se o retorno da função é um array.
   it("Verifica se o retorno da função é um array", () => {
-    expect(Array.isArray(productDetails("Alcool gel", "Máscara"))).toBeTruthy;
+    expect(Array.isArray(productDetails("Alcool gel", "Máscara"))).toBeTruthy();
   });
   // Teste se o array retornado pela função contém dois itens dentro.
   it("Verifica se o retorno do array tem dois item", () => {
